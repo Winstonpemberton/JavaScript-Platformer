@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       user = User.create(user_params)
       if user.valid?
         session[:user_id] = user.id
-        render json: user
+        render json: UsersSerializer.new(user)
         # redirect_to user_path(user)
       else
         render json: {errors: user.errors.full_messages}
