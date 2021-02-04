@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         render json: user
         # redirect_to user_path(user)
       else
-        render :new
+        render json: {errors: user.errors.full_messages}
       end
     end
 
