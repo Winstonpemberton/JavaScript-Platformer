@@ -19,5 +19,5 @@ class Player {
 }
 
 // the player need a size method so give it a vector postition
-// use the prototype method which "The JavaScript prototype property also allows you to add new methods to objects constructors:"
+// use the prototype method which "The JavaScript prototype property also allows you to add new methods to objects constructors:" do this instead of adding a getter because it would create a new vector object everytime the property is read
 Player.prototype.size = new VectorPostition(0.8, 1.5)
