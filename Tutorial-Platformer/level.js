@@ -32,6 +32,12 @@ class Level {
     }
 
 }
+// create an hash the holds the meaning of all the symbols in a planned level ie "@":Player
+const levelChars ={
+    ".": "empty", "#":"wall", "+":"lava",
+    "@":Player, "o":Coin, "=":Lava, "|":Lava,
+    "v":Lava 
+}
 
 // example of a "plan" aka a planed level 
 let simpleLevelPlan = `
