@@ -1,0 +1,25 @@
+/*since we named the table background we can just grab it with .background */
+.background {
+    /*change the background to blue using the rgb values*/
+    background: rgb(52, 166, 251);
+    /*this makes sure the table doesn't do any kind of resizing so you set it to fixed*/
+    table-layout: fixed;
+    /*you also don't want any weird spacing so you set the border spacing to 0*/
+    border-spacing: 0;
+
+}
+/*grab the background table cells*/
+.background td {
+    /*make sure each cell doesn't have any padding so there isn't any awkward spacing in between cells*/
+    padding: 0;
+}
+/*grab the lava class*/
+.lava {
+    /*set it's background to red*/
+    background: rgb(255,100, 100);
+}
+/*grab the wall class*/
+.wall {
+    /*set it's background to white */
+    background: white;
+}
