@@ -1,7 +1,7 @@
 // the game needs to check its state to see where everything is at all times 
 // to do this you need a state class 
 class State {
-    // states need to initalized with a level, actors and status 
+    // states need to initialized with a level, actors and status 
     // actors are need to find the character and status is used to checked whether or not the player completed the level by getting all the coins 
     constructor(level, actors, status){
         this.level = level 
