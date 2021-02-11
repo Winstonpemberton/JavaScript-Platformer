@@ -23,3 +23,16 @@
     /*set it's background to white */
     background: white;
 }
+/*grabs the actor class and sets the position to absolute so the game can tell the exact position at all times */
+.actor {
+    position: absolute;
+}
+/*grabs the coin class and sets its background to yellow*/
+.coin {
+    background: rgb(241,229,89);
+}
+/*grabs the player class and sets its background to grey*/
+.player {
+    background: rgb(64, 64, 64);
+}
+

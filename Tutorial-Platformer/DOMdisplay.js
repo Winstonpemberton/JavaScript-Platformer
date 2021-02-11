@@ -37,6 +37,26 @@ function drawGrid(level) {
         ))
         
 }
+// draw actor function that accepts actors 
+function drawActors(actors) {
+    // returns a newly created element 
+    // element helper first creates a div parent, doesn't have any attributes and has children so it iterates through actors to create them
+    return elementHelper("div", {}, ...actors.map(actor =>{
+        // each element is just going to be called rect for rectangle 
+        // creates another element with the parent being div, has a class attribute named actor for apply css later also uses interpolation to get the type of actor it is 
+        let rect = elementHelper("div", {class: `actor ${actor.type}`})
+        // sets the width of the actor using style.width 
+        // since the actors class has a set size you need to multiply the size by the scale
+        // same process for height, left and top
+        rect.style.width = `${actor.size.x * scale}px`
+        rect.style.height = `${actor.size.y * scale}px`
+        rect.style.left = `${actor.pos.x * scale}px`
+        rect.style.top = `${actor.pos.x * scale}px`
+        // return the rect so the first div gets the newly created child 
+        return rect 
+    
+    }))
+}
 
 // since you can only manipulate the dom one child at a time you can create a helper method that can speed up the creating time that accepts a name, attributes and children 
 function elementHelper(name, attrs, ...children) {
