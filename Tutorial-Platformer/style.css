@@ -36,3 +36,25 @@
     background: rgb(64, 64, 64);
 }
 
+/*since syncState changes the doms class name depending on if the game is lost or won you can grab the class*/
+/*the player can only lose if they touch lava so when they do they turn red*/
+.lost .player {
+    background: rgb(160,64,64);
+}
+/*if they collect all the coins a little halo appears above their head*/
+.won .player{
+    box-shadow: -4px, -7px, 8px white, 4px - 7px 8px white;
+}
+
+/*the level might not fit in the screen so you need to have it be able to scroll*/
+/*grab the game class*/
+.game {
+    /*set the overflow to hidden so anything outside of the view is hidden*/
+    overflow: hidden;
+    /*set a max width*/
+    max-width: 600px;
+    /*set a max hight*/
+    max-height: 450px;
+    /*set the position to relative so the player is position is relative to the top left corner*/
+    position: relative;
+}
