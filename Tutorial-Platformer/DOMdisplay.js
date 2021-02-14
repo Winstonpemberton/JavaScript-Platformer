@@ -74,27 +74,51 @@ DOMdisplay.prototype.syncState = function(state) {
     this.scrollPlayerIntoView(state)
 }
 
+// Camera scrolling
+// create the function by using the prototype method on the Dom display class, the function take in one parameter
+// use prototype because all of the Dom display objects are going to use it exactly the same way
 DOMdisplay.prototype.scrollPlayerIntoView = function (state) {
+    // set a variable to the clientWidth of the dom 
+    // the client width is the the width of the element including its padding but not anything else
+    // the css box model has 4 elements content, padding, border, margin from inner to outer
     let width = this.dom.clientWidth
+    // set a variable height the same way but using clientHeight
     let height = this.dom.clientHeight
+    // set a variable margin to width divided by three
     let margin = width/3 
-
-    let left = this.dom.scrollLeft, right = left + width 
+    // set a variable left to the dom's scroll left method
+    // set another variable right to left plus the width of the display  
+    // scrollLeft is a method that manipulates the scroll position allowing it to follow the player's position 
+    // scroll right stops it from going past the base point 
+    let left = this.dom.scrollLeft, right = left + width
+    // same as left but for scrollTop and setting bottom 
     let top = this.dom.scrollTop,bottom = top + height 
-
+    // set a variable player to the state's player
+    // state was a parameter in the function 
     let player = state.player
+    // to get the center you use the player's position, use the method plus since its a vector object.
+    // the plus method has an argument so you put in the players size,also a method player's have and using the times method multiply it by .5 and multiply it again by the scale 
     let center = player.pos.plus(player.size.times(0.5)).times(scale)
 
+    // if the center.x, its a vector object so it comes with an x property, is less than the left side plus the display's margin 
     if (center.x < left + margin){
+        // change the dom's scrollLeft property to center.x minus the margin 
+        // this checks to see if the camera is inside the acceptable viewing range 
         this.dom.scrollLeft = center.x - margin
+    // else if the center.x is greater than right - margin 
     }else if (center.x > right - margin){
+        // same as left but center.x adding the margin and subtracting the width 
         this.dom.scrollLeft = center.x + margin - width 
-    }
+    }// if the center.y is lest than the top + margin 
     if (center.y <top + margin){
+        // change the dom's scroll top to center/y - margin 
         this.dom.scrollTop = center.y - margin
-    }else if (center.y > bottom - margin){
+    }// else if center.y is greater than bottom minus the margin 
+    else if (center.y > bottom - margin){
+        // same as the one before but the dom is being set to center.y plus the margin minus the height 
         this.dom.scrollTop = center.y + margin - height
     }
+    // all of this is to make sure the camera stays with the player, they're other ways to do this like just having scrollUp and scroll left but apparently it looks very weird 
     
 }
     
