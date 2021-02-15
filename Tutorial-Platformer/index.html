@@ -1,7 +1,28 @@
+<!--sets a link tag, using rel set the name stylesheet and give href the place where the css is  -->
+<!--this links the html to the css-->
 <link rel="stylesheet" href="style.css">
-
+<!--set a script tag-->
+<!--script tags are allowing java code in html-->
+<link rel="level" href="level.js">
+<body>
 <script>
+        let simpleLevelPlan = `
+......................
+..#................#..
+..#..............=.#..
+..#.........o.o....#..
+..#.@......#####...#..
+..#####............#..
+......#++++++++++++#..
+......##############..
+......................`;
+    // set a variable to new Level object and pass in the simpleLevelPlan
     let simpleLevel = new Level(simpleLevelPlan)
+    // set a variable to a new Dom Display object and pass in document.body and the level object
     let display = new DOMdisplay(document.body, simpleLevel)
+    // using the display object set the syneState and give it State.start
+    // start also needs a argument so give it the level object 
     display.syncState(State.start(simpleLevel))
+
 </script>
+</body>
