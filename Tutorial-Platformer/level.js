@@ -32,6 +32,41 @@ class Level {
     }
 
 }
+
+// create a method touch using the prototype method on Level
+// the function takes in three parameters position, size and type 
+// the point of the method is to see if a type is touching another type
+Level.prototype.touches = function(position, size, type) {
+    // the point of doing this is to form a grind around the character to see if its touching anything 
+    // set a variable to Math.floor and pass in the position.x 
+    // Math.floor rounds any given number down 
+    let xStart = Math.floor(position.x)
+    // set a variable to Math.ceil and pass in the position.x 
+    // MAth.ceil rounds any given number up 
+    let xEnd = Math.ceil(position.x + size.x)
+    // same as the first line but with position.y
+    let yStart = Math.floor(position.y)
+    // same as the second line but with position.y and size.y
+    let yEnd = Math.ceil(position.y + size.y)
+
+    // start a for loop and set a variable to the variable with floor position.y; if its less than the variable that holds position.y + size.y; if yes increase 
+    for(let y =yStart; y < yEnd; y++){
+        // set another for loop this time for x 
+        for(let x = xStart; x <xEnd; x++){
+            // create a variable that checks to see if something is outside the grid created around the character
+            // set it to see if the current x loop variable is less than zero, greater than the level's width, if its y loop variable is less than 0 or is greater than or equal to this.height 
+            let isOutside = x < 0 || x >= this.width || y < 0 || y >= this.height;
+        // create a ternary the checks if the last variable is true or false
+        // if true than set it to "wall" if not than set it to the exact point using this.rows[y][x]
+        let here = isOutside ? "wall" : this.rows[y][x]
+        // if the last variable is the same as the type that was passed in to the function in the beginning than return true 
+        if(here === type) return true 
+        }
+    // if the passed in object skips everything prior than just return false 
+    }
+    return false
+    
+}
 // create an hash the holds the meaning of all the symbols in a planned level ie "@":Player
 const levelChars ={
     ".": "empty", "#":"wall", "+":"lava",
