@@ -6,7 +6,7 @@ class DOMdisplay{
     constructor(parent, level) {
         // using the helper method you can set this dom and give it the parameters "div", {class:"game"} and drawGrid method with the level passed into it 
         // div is the parent
-        this.dom = elementHelper("div", {class: "game"}, drawGrid(level))
+        this.dom = elementHelper("div", {class: "game"}, drawGrid(level));
         // actors or characters are redrawn every time the display is updated so you need an actor layer to keep track of the actors so they can be replaced or moved, since theres nothing at creation set it to null 
         this.actorLayer = null;
         // once everything is done you can append the child, this dom, to the parent so it actually shows up
@@ -33,7 +33,7 @@ function drawGrid(level) {
     // the last argument in the element helper is children which this is going to have so iterate through the level rows using map use element helper again because you're now trying to create table rows 
     // again the first argument is going to be the parent which in this case is "tr" or html for table row, second argument is setting the height using the html style attribute since you create the tables width by multiply it by the scale you can just give it the scale as its value
     // the third argument is going to create the cells so do the same process as before and create another element for as many rows there are "td" is html for table cells and class:type is going to be its attribute 
-    return elementHelper("table", {class: "background", style:`width: ${level.width * scale}px`}, ...level.rows.map(row => elementHelper("tr", {style: `height: ${scale}px`}, ...row.map(type =>("td", {class: type})))
+    return elementHelper("table", {class: "background", style: `width: ${level.width * scale}px`}, ...level.rows.map(row => elementHelper("tr", {style: `height: ${scale}px`}, ...row.map(type =>elementHelper("td", {class: type})))
         ))
         
 }
@@ -44,14 +44,14 @@ function drawActors(actors) {
     return elementHelper("div", {}, ...actors.map(actor =>{
         // each element is just going to be called rect for rectangle 
         // creates another element with the parent being div, has a class attribute named actor for apply css later also uses interpolation to get the type of actor it is 
-        let rect = elementHelper("div", {class: `actor ${actor.type}`})
+        let rect = elementHelper("div", {class: `actor ${actor.type}`});
         // sets the width of the actor using style.width 
         // since the actors class has a set size you need to multiply the size by the scale
         // same process for height, left and top
-        rect.style.width = `${actor.size.x * scale}px`
-        rect.style.height = `${actor.size.y * scale}px`
-        rect.style.left = `${actor.pos.x * scale}px`
-        rect.style.top = `${actor.pos.x * scale}px`
+        rect.style.width = `${actor.size.x * scale}px`;
+        rect.style.height = `${actor.size.y * scale}px`;
+        rect.style.left = `${actor.position.x * scale}px`;
+        rect.style.top = `${actor.position.y * scale}px`;
         // return the rect so the first div gets the newly created child 
         return rect 
     
@@ -98,7 +98,7 @@ DOMdisplay.prototype.scrollPlayerIntoView = function (state) {
     let player = state.player
     // to get the center you use the player's position, use the method plus since its a vector object.
     // the plus method has an argument so you put in the players size,also a method player's have and using the times method multiply it by .5 and multiply it again by the scale 
-    let center = player.pos.plus(player.size.times(0.5)).times(scale)
+    let center = player.position.plus(player.size.times(0.5)).times(scale)
 
     // if the center.x, its a vector object so it comes with an x property, is less than the left side plus the display's margin 
     if (center.x < left + margin){

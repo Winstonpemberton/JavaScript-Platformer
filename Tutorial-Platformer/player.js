@@ -1,8 +1,8 @@
 // need a class for players
 class Player {
     // the class needs to be given a position and speed 
-    constructor(pos, speed){
-        this.pos = pos 
+    constructor(position, speed){
+        this.position = position 
         this.speed = speed
     }
 
@@ -12,9 +12,9 @@ class Player {
     }
 
     // class needs a create method that creates a new player object and is given a position 
-    static create(pos){
+    static create(position){
         // the method returns a new player while giving it positions by the vector class
-        return new Player(pos.plus(new VectorPosition(0, -0.5)), new VectorPosition(0,0))
+        return new Player(position.plus(new VectorPosition(0, -0.5)), new VectorPosition(0,0))
     }
 }
 

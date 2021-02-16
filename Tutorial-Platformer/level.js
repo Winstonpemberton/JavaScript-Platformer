@@ -24,7 +24,7 @@ class Level {
                 if (typeof type == "string") return type;
                 // if its one of the actors push it into the actors array with its exact vector position 
                 // need to create a vector position class  
-                this.startActors.push(type.create(new Vec(x,y), ch))
+                this.startActors.push(type.create(new VectorPosition(x,y), ch))
                 // if its not an actor than it's empty space
                 return "empty"
             })
