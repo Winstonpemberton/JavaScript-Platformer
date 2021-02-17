@@ -29,6 +29,12 @@ class Lava {
         }
     }
 }
+// this method check to see if the player collided with lava 
+// create a collide function using the prototype method on lava, the function has one parameter state
+Lava.prototype.collide = function (state) {
+    // return a new state object, state's constructor needs three arguments the states level, the state's actors and a new status which is going to be set to "lost"
+    return new State(state.level, state.actors, "lost")
+}
 
 // since size is universal use the prototype method like you did for player 
 Lava.prototype.size = new VectorPosition(1, 1)
