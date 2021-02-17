@@ -19,3 +19,36 @@ class State {
         return this.actors.find(a => a.type === "player")
     }
 }
+// this method updates the current state of the game by checking which keys are being held down and seeing if the player is touching lava 
+// use the prototype method on State to create a new function that gets passed in time and keys 
+// time is used to note how long the key is held down and keys is a array of keys that the player would use to move
+State.prototype.update = function (time, keys) {
+    // iterate over the this state's actors using map, each actor has an update method that takes in three parameters
+    // time, the current state, and keys 
+    // essentially you are setting a variable to hold an array of updated actors 
+    let actors = this.actors.map(actor => actor.update(time, this, keys))
+    // set a variable to a new State and pass in the current states level, the updated actors and the current states status 
+    let newState = new State(this.level, actors, this.status)
+
+    // if the new state's status isn't equal to playing return it 
+    // if the game is over there's no point in continuing 
+    if(newState.status != "playing") return newState
+    // set a variable to the new state's player method  
+    let player = newState.player
+    // if this state's level touches, the level class's touches method has three parameters pass in player's position, player's size and the thing to check if it touches which is "lava"
+    if (this.level.touches(player.position, player.size, "lava")){
+        // if it returns true than return a new state as pass in the current level, actors and "lost"
+        return new State(this.level, actors, "lost")
+    }
+    // use an advanced for loop to iterate over actors 
+    for (let actor of actors){
+        // if the current actor is not the player and overlap, which has two parameters pass in the actor and player
+        if (actor != player && overlap(actor, player)){
+            // set the new state to the current actor collide method which has one parameter so pass in the new state 
+            newState = actor.collide(newState)
+        }
+    }
+    // if for some reason nothing above worked just return the new state
+    return newState
+    
+}
