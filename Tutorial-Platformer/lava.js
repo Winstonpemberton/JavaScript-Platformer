@@ -36,5 +36,31 @@ Lava.prototype.collide = function (state) {
     return new State(state.level, state.actors, "lost")
 }
 
+// this function moves lava objects which there's three kinds 
+// create a function using prototype on the lava class, the function has two arguments, time and state
+Lava.prototype.update = function (time, state) {
+    // this moves the lava object by a specified amount 
+    // set a variable to hold the current lava objects position plus the objects speed times the time parameter
+    // the plus method that was created for the vector class takes in one argument and so does times 
+    let newPosition = this.position.plus(this.speed.times(time))
+    // this is for regular lava, if the spot next to it isn't a wall move it there
+    // if not state's level touches the new position, the current lava object's size and "wall"
+    // touches takes in three parameters, a position, size and aa object type
+    if (!state.level.touches(newPosition,this.size, "wall")){
+        // return a new Lava object at the new position, with the current object's speed and its reset
+        return new Lava(newPosition, this.speed, this.reset)
+    // else if the object's reset is true so it was given a reset value since not all lava has one 
+    } else if (this.reset){
+        // this else act like a loop for dripping lava, when it hits something it returns back to its starting position
+        // than create a new lava object at the current objects reset point, its speed and again the current object's reset point 
+        return new Lava(this.reset, this.speed, this.reset)
+    // else 
+    }else {
+        // this is for bouncing lava,once it hits something it reverses the other direction 
+        // return a new lava object and pass in the current lava objects position, and its speed times -1
+        return new Lava(this.position, this.speed.times(-1))
+    }
+}
+
 // since size is universal use the prototype method like you did for player 
 Lava.prototype.size = new VectorPosition(1, 1)
