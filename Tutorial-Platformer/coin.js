@@ -20,5 +20,17 @@ class Coin{
         return new Coin(position, basePosition, Math.random() * Math.PI * 2)
     }
 }
+// checks to see if the player collided with a coin 
+// create a method called collied using the prototype method on the Coin class, the method has one argument which is state
+Coin.prototype.collide = function (state) {
+    // filter through the state's actors and check to see if any of the actors inside are not a coin 
+    let filtered = state.actors.filter(a => a != this)
+    // set a variable to the state's status 
+    let status = state.status
+    // if not filtered iterate through it using the some method and check to see if the type is equal to coin if it passes true set status to "won"
+    if (!filtered.some(a => a.type === "coin")) status = "won"
+    // then return a new state and pass in the current state's level, filtered and status 
+    return new State(state.level, filtered, status)
+}
 // since size is universal use the prototype method like you did for player 
 Coin.prototype.size = new VectorPosition(0.6, 0.6);
