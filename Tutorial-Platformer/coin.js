@@ -33,5 +33,25 @@ Coin.prototype.collide = function (state) {
     // then return a new state and pass in the current state's level, filtered and status 
     return new State(state.level, filtered, status)
 }
+// set the wobble speed and wobble distance 
+// 8 is a good wobble speed and .07 is a good distance
+const wobbleSpeed = 8, wobbleDist = 0.07
+
+// this function creates the wobble effect that coins will have 
+// create a update function using prototype on the coin class, it takes in one argument time 
+Coin.prototype.update = function (time) {
+    // this sets how fast the coin is going wobble
+    // set a variable to the current coin's wobble + time * the wobble speed 
+    let wobble = this.wobble + time *  wobbleSpeed
+    // this sets how far it will wobble and make it go in a circle using math's sin method 
+    // set a variable to Math.sin and pass in the last variable and then multiply it by the wobble distance 
+    let wobblePosition = Math.sin(wobble) * wobbleDist
+    // this creates the coin with the wobble effect 
+    // return a new coin object and pass in the base position plus a new vector position
+    // the vector object needs two parameters filled, pass in 0 and the newly created wobble position
+    // coins have three parameters, so next pass in the current coins base position and the newly created wobble 
+    return new Coin(this.basePosition.plus(new VectorPosition(0, wobblePosition)), this.basePosition, wobble)
+    
+}
 // since size is universal use the prototype method like you did for player 
 Coin.prototype.size = new VectorPosition(0.6, 0.6);
