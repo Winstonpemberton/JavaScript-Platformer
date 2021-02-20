@@ -121,7 +121,33 @@ DOMdisplay.prototype.scrollPlayerIntoView = function (state) {
     // all of this is to make sure the camera stays with the player, they're other ways to do this like just having scrollUp and scroll left but apparently it looks very weird 
     
 }
-    
+// this method is used to track if the player is pressing a key
+// create a function trackKeys and give it one argument keys which would be an array of keys 
+function trackKeys(keys) {
+    // set a variable down to create a Object that's null 
+    let down = Object.create(null)
+    // inside the function create another function to track keys
+    // give it one argument events 
+    // it will track which listener event has been added
+    function track(event) {
+        // if keys includes(method) event key 
+        // checks to see if one of the keys that was passed in is the key in the event 
+        if (keys.includes(event.key)){
+            // down should be a hash so set its key to the event key and have its value equal the event's type if it's equal to "key down "
+            down[event.key] = event.type === "keydown"
+            // events for keys by default move the page up and down to stop this use the preventDefault method on it 
+            event.preventDefault()
+        }
+    }
+    // add a new event listener to window, it has to arguments something to do to look for in this case "keydown" and what to do if it does find it which is use the track method 
+    window.addEventListener("keydown", track)
+    // do the same for "keyup"
+    window.addEventListener("keyup", track)
+    // finally return down 
+    return down
+}
+
+const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"])
 
 
 // since you can only manipulate the dom one child at a time you can create a helper method that can speed up the creating time that accepts a name, attributes and children 
