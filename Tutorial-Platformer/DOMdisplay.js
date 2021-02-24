@@ -149,6 +149,38 @@ function trackKeys(keys) {
 
 const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"])
 
+// this is a helper method for doing animation 
+// create a method called runAnimation which will have one argument frameFunction 
+// frame function is telling the method how long to run the animation for
+function runAnimation(frameFunc) {
+    // create a variable to hold a null value 
+    // this variable is going to hold the time the player spent away from the screen if they click another tab to look at 
+    let lastTime = null 
+    // create another function called frame 
+    // this is used to actually create the frames for the animation, it takes in one argument, time 
+    function frame(time) {
+        // if last time doesn't equal null
+        if (lastTime != null){
+            // create a variable to hold the value of Math.min, since min accepts as many arguments that you want, pass in time - the last time, and 100 then divide that value by 1000
+            // essentially this create a variable to hold the time to skip ahead depending on how long the player click onto a different tab 
+            let timeStep = Math.min(time - lastTime, 100) / 1000
+            // if frameFunction with the variable holding the skip time === false than return it 
+            // this is to see if the animation need to keep going or to stop 
+            if(frameFunc(timeStep) === false) return
+        } 
+        // set the last time equal to the argument time 
+        // this is to start the frames 
+        lastTime = time 
+        // use the method requestAnimationFrame and pass in the frame function 
+        // this tells the browser that there's an animation that needs to stop 
+        // it knows this because the frame method would return false 
+        requestAnimationFrame(frame)
+    }
+    // use the method requestAnimationFrame and pass in the frame function to have the animation start 
+    // this tells the browser that there's animation 
+    requestAnimationFrame(frame)
+}
+
 
 // since you can only manipulate the dom one child at a time you can create a helper method that can speed up the creating time that accepts a name, attributes and children 
 function elementHelper(name, attrs, ...children) {
