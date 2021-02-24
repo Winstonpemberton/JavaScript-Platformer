@@ -12,15 +12,17 @@
 <script src="coin.js"></script>
 <script src="level.js"></script>
 <script src="DOMdisplay.js"></script>
+<script src="game_levels.js"></script>
 
 <script>
-    // set a variable to new Level object and pass in the simpleLevelPlan
-    let simpleLevel = new Level(simpleLevelPlan);
-    // set a variable to a new Dom Display object and pass in document.body and the level object
-    let display = new DOMdisplay(document.body, simpleLevel)
-    // using the display object set the syneState and give it State.start
-    // start also needs a argument so give it the level object 
-    display.syncState(State.start(simpleLevel))
-
+    // // set a variable to new Level object and pass in the simpleLevelPlan
+    // let simpleLevel = new Level(simpleLevelPlan);
+    // // set a variable to a new Dom Display object and pass in document.body and the level object
+    // let display = new DOMdisplay(document.body, simpleLevel)
+    // // using the display object set the syneState and give it State.start
+    // // start also needs a argument so give it the level object 
+    // display.syncState(State.start(simpleLevel))
+    // test
+    runGame(GAME_LEVELS,DOMdisplay) 
 </script>
 </body>

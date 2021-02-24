@@ -181,6 +181,69 @@ function runAnimation(frameFunc) {
     requestAnimationFrame(frame)
 }
 
+// this method actually runs the level when given a display and level, when its over the game waits a couple seconds and either goes to the next level or restarts 
+// create a method runLevel, which has two arguments, level and Display 
+function runLevel(level, Display) {
+    // create a variable to hold a new Dom display object and pass in the document body and the level
+    let display = new Display(document.body, level)
+    // create a variable to hold State.start pass in the level to the start method 
+    let state = State.start(level)
+    // create a variable to hold the number one 
+    // this is going to be used later to help with telling if the game is ending
+    let ending = 1
+    // return a new promise object and pass in a callback into it by using the arrow operator to create a variable resolve
+    // when dealing with Asynchronicity promise is essentially a method that within its creation that it would be given everything it needs to return true or else it returns false p
+    return new Promise(resolve => {
+        // call the runAnimation method and use the arrow operator to make another callback with the variable time 
+        runAnimation(time => {
+            // set state to state's update method with time and arrowKeys passed in 
+            state = state.update(time, arrowKeys)
+            // have display call it's syncState method and pass in state
+            display.syncState(state)
+            // if state's status is equal to "playing"
+            if (state.status === "playing"){
+                // return true 
+                return true
+            // else if ending is greater than 0
+            }else if (ending > 0){
+                // set ending to minus equal time 
+                ending -= time 
+                // and return true 
+                return true 
+            // else 
+            }else {
+                // clear display 
+                display.clear()
+                // pass in state.status to resolve 
+                resolve(state.status)
+                // and return false 
+                return false 
+            }
+
+        })
+    })
+}
+
+// create an Asynchronous function runGame with two arguments, plans and Display 
+// to create an Asynchronous use async before function 
+// Asynchronous functions are functions that instead of waiting to for one task to finish before starting the next task, it preforms the next task and comes back to it when it's finished 
+// plans are the given level and Display is the dom display object that displays everything 
+async function runGame(plans, Display) {
+    // for level equals zero, level is less than the plan's length 
+    // this checks if there's multiple levels that need to be loaded
+    for (let level = 0; level < plans.length;){
+        // create a variable to hold runLevel with a new level object passed into it, the level object needs two parameters filled which is a plan so pass in the plans and since plans is an array you need to specify which one and since you have a variable that increases per level use that for specifying which plan
+        // also pass in the display as the second parameter
+        // because runLevel has a promise attached to it, it needs the await expressing before its called so it waits for the promise to be fulfilled 
+        let status = await runLevel(new Level(plans[level]), Display)
+        // is the status of the game is "won", increase the level variable 
+        if (status ==="won") level++
+    }
+    // use the console to display "You've won!"
+    console.log("You've won!")
+    
+}
+
 
 // since you can only manipulate the dom one child at a time you can create a helper method that can speed up the creating time that accepts a name, attributes and children 
 function elementHelper(name, attrs, ...children) {
