@@ -58,6 +58,6 @@ function overlap(actor1, actor2) {
     // check to see if the position x plus the size of the actor's x is greater than the position.x of the second actor and vice versa 
     // then do the same thing for position.y and size.y 
     // this should return true or false 
-    return actor1.position.x + actor1.size.x > actor2.position.x && actor1.position.x < actor2.position.x + actor2.size && actor1.position.y + actor1.size.y > actor2.position.y && actor1.position.y < actor2.position.y + actor2.size.y 
+    return actor1.position.x + actor1.size.x > actor2.position.x && actor1.position.x < actor2.position.x + actor2.size.x && actor1.position.y + actor1.size.y > actor2.position.y && actor1.position.y < actor2.position.y + actor2.size.y 
     
 }

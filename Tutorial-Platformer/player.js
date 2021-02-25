@@ -43,7 +43,7 @@ Player.prototype.update = function (time, state, keys) {
     // this will check to see if the position the player is trying to is a wall if it's not 
     if (!state.level.touches(movedX, this.size, "wall")){
         // set the position of the player to the moved x position 
-        position.movedX 
+        position = movedX 
     }
     // set a variable to hold the y speed of the player
     // set it equal to the current player objects speed's y property + the time * gravity 

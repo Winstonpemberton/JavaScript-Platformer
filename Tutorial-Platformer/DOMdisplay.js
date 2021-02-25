@@ -53,7 +53,8 @@ function drawActors(actors) {
         rect.style.left = `${actor.position.x * scale}px`;
         rect.style.top = `${actor.position.y * scale}px`;
         // return the rect so the first div gets the newly created child 
-        return rect 
+        return rect
+
     
     }))
 }
@@ -62,12 +63,12 @@ function drawActors(actors) {
 DOMdisplay.prototype.syncState = function(state) {
     
     // if the display object's actorLayer isn't empty than remove them 
-    if(this.actorLayer) this.actorLayer.remove
+    if(this.actorLayer) this.actorLayer.remove()
     // then redraw the actors in the actorLayer using the drawActors method while passing in state.actors
     // state is the parameter that was passed in to the function, the state would hold which actors that are still in the game by using its actors method 
     this.actorLayer = drawActors(state.actors)
     // since you redrew the actors you need to append the actorLayer to the dom 
-    this.dom.appendChild = this.actorLayer
+    this.dom.appendChild(this.actorLayer)
     // set the doms className to the game's current status using interpolation 
     this.dom.className = `game ${state.status}`
     // the current object also uses a method called scrollPlayerIntoView method with the current state passed into it
