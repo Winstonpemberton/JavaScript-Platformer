@@ -1,0 +1,31 @@
+Every player needs a position and a speed 
+this is for placement when drawing 
+The player class needs four methods for it to work properly 
+
+Method - type()
+Summery: this method returns the type of the player so when other methods iterate through a list of actors it can call it and know what it is 
+
+Return type: the type should be a string since you only need to see what it is and not actually create it yet 
+
+Tips: it should be a getter method 
+
+Method - create()
+Summery: this method creates a player object, it's mostly used in the drawing process 
+
+Return type: the return type is going to be a new player object with a given position using Vectors 
+
+Tips: shouldn't be too difficult, if anything it'll be trail and error to see where it spawns 
+
+Method - update()
+Summery: this method is used for determining how the player moves and is effected by gravity. it checks to see which direction the player is holding a key and moves it in that direction, it also needs to know if the place its going to move to is a wall. this method determines both the x axis and the y axis also known as jumping 
+
+Return type: a new player object with and updated position and new VectorPosition with the players x axis speed and y axis speed 
+
+Tips: set up variable to hold the jumpSpeed and gravity, use the prototype method because creating an actual function would waste resources, time and the state of the game is crucial for determining if the player can go where it needs to 
+
+Method- size 
+Summery: this just sets the size of the player 
+
+Return type: a new VectorPosition 
+
+Tips: VectorPosition is essentially a position on a grid so the size is going to be determine how many grid spaces a player takes up 
