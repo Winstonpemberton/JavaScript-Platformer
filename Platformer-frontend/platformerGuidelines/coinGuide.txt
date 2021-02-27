@@ -1,0 +1,34 @@
+Overview 
+creates a coin and holds all of its necessary class properties and methods. It has five methods and needs a position on creation 
+
+Method - type()
+Summery: it returns the type of the object, mostly for iterating purposes when drawing
+
+Return type: returns a string coin 
+
+
+Method - create(position)
+Summery: sets the position of the coin
+
+Return type: a new coin object
+
+Method - collide(state)
+Summery: checks to see if the player collided with it so it would disappear so the player can win and go to the next level 
+
+Return type: a new state object with the update amount of coins left and a new status 
+
+tips: state is crucial for this to work, this method needs to know how many coins there's and send that to state. you'll need an array to subtract the amount of coins left after every time the player collides with a coin 
+
+Method - update(time)
+Summery: this is used to make the coin wobble but this is definitely going to be a stretch goal 
+
+Return type: returns a new coin object with an update position, base position and wobble 
+
+Tips: its a prototype method and Math.sin creates a circle affect 
+
+Method - size()
+Summery: it sets the size of every coin 
+
+Return type: a new Vector object 
+
+Tips: mostly going to eyeball it to see if wonk 
