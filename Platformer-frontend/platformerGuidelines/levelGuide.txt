@@ -1,0 +1,33 @@
+Overview 
+this class creates level objects by taking in a plan, which is just a created level layout, and building a grid like structure
+
+method - constructor(plan)
+Summery: the method needs to use the plan to create rows, it does it by removing empty space from both ends and putting all what's on the inside in an array and creating a new line. After rows are created, you have to move on to the hard part and thats finding out what each thing is inside the rows
+
+Return type: setting a row happens at creation so the return type would be a row that has had its x axis iterated over, checked to see what it is and created with a vector position 
+
+Tips: for setting a row you need to find its height and width which can be determined by the length of the array that was created before. an array of actors is also going to be needed for pushing the created actors into. This is also where the type method for other objects become useful because you can use that when iterating to see if its a string, you can also pass in the x and y values when trying to figure out what position to give the vector class 
+
+method - touches(position, size, type)
+Summery: this method essentially creates a slightly bigger box around a the given object by using its size and position axis values. it the creates the box to see if everything is outside the box. 
+
+Return type: this is a boolean method that only checks to see if something is inside the box, if so it returns true else its false 
+
+Tips: if there's an object on the inside you need to check to see if its the wall or something else at that position in the row so you can compare what type it is to the type of the object to begin with 
+
+const - levelChars 
+Summery: a hash that holds what all the characters in a plan mean
+
+Return type: each cell in the hash would have a key that would be the the symbol that represents a value like "." is the the symbol to an empty space 
+
+
+Example plan
+......................
+..#................#..
+..#..............=.#..
+..#.........o.o....#..
+..#.@......#####...#..
+..#####............#..
+......#++++++++++++#..
+......##############..
+......................`;
