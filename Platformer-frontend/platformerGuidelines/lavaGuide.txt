@@ -1,0 +1,23 @@
+Overview
+This class holds all the necessary properties for lava and methods for colliding and updating 
+
+method- constructor(position, speed, reset)
+Summery: the constructor needs these things at creation to determine where lava will be created, the speed of moving lava and a reset position for dripping lava 
+
+method - type()
+Summery: returns a string of the class for drawing 
+
+method - collide(state)
+Summery: checks to see if the player touches it, if so the game restarts 
+
+Return type: returns a new state object with an updated level, actors and state type of lost 
+
+method - update(time, state)
+Summery: this method takes in how much time is passed and updates the lava accordingly and also takes in state to see if the lava can keep going in a direction before reversing or resetting. it does this by adding its old position to a new one if the new position its going next isn't a wall and acts a different way depending on the type of lava, 
+
+Return type: depending on the type of lava, the return type will be a lava object with a updated position. if its dripping lava than it uses the reset properties and if its reversing lava it reverses its speed 
+
+method - size()
+Summery: sets the size of lava 
+
+Return type: returns a new vector object
