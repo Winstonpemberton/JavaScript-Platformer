@@ -1,0 +1,16 @@
+Overview
+this class makes it possible to take a cell from out of the table and set cells with symbols, it's methods are also used to add or multiply positions to help with updating 
+
+method - constructor(x,y)
+Summery: the class's properties are x and y values for selecting a grid position 
+
+method - plus(other)
+Summery: it's given another vector object and adds their x and y axises 
+
+Return type: returns a new vector object 
+
+method - times(factor)
+Summery: it's given an amount to multiply the current x and y axis 
+
+Return type: returns a new vector object with the x and y values multiplied by the given amount 
+
