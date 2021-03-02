@@ -1,0 +1,46 @@
+Overview 
+this sets the spacing, layout and colors of the game
+
+class - .background
+Summery: sets the background color, table layout and border spacing
+
+Tips: its a table so the layout should be fixed and there should be no spacing
+
+class - .background td 
+Summery: td is used to get the table's cells, this sets the padding of each cell 
+
+tips: there should be no padding because it would look very weird, though you are using it like a table it really isn't 
+
+class - .lava 
+Summery: just set the color of lava 
+
+Tips: the background css method sets the color 
+
+class - .wall 
+Summery: sets the color of walls 
+
+class - .actor 
+Summery: sets the position of actors 
+
+Tips: the position should be absolute so the game knows where actors are at all times
+
+class - .coin 
+Summery: sets the color of coins 
+
+class - .player
+Summery: sets the color of the player 
+
+class - .lost .player
+Summery: sets a new color of the player if they lose which would only happen if they touch lava
+
+class - .won .player 
+Summery: sets a halo above the players head but to be real you could just set it to turn yellow or something
+
+Tips: the box shadow method is used to set a white box above the players head 
+
+class - .game 
+Summery: sets up how big the game will display, what is shown, and the position of the display 
+
+Tips: max height and max width are css methods, overflow is a method that can be set to hide anything beyond the specified point and setting the position to relative puts it in the top left corner 
+
+
