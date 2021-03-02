@@ -1,0 +1,31 @@
+Overview
+this class is used to track the progress of the game by knowing where everything is, its also used as a bases other classes for whether or not something can move to another position. 
+
+method - constructor(level, actor, status)
+Summery: the level is used to read what the current level looks like, actors are used for updating actor locations, getting the player and checking to see if different actors are overlapping, status just checks to see if the game is beaten or not so the next level is loaded or the game is reset because the player lost
+
+method - start(level)
+Summery: sets the state of the game to playing 
+
+Return type: returns a new state object that has its state set to "playing"
+
+method - player()
+Summery: it iterates through the current states actors to find the player 
+
+Return type: returns a player actor 
+
+Tips: there's a find method in java that iterates through an array and finds a specified thing
+
+method - update(time, keys)
+Summery: this method actually does a lot so I might break it up if it's possible, essentially it updates all the current level actors of the new state of the game, ends the game if the player touches lava, checks to see if the player is overlapping another actor object and initiate a specified collision
+
+Return type: returns a new state object depending on what's currently happening. if the player collided with something, is touching something or moved somewhere else
+
+Tips: a state object needs the actors property filled so put it in a array, check to see if the game is playing before setting a new state, grab a new player from the update state, check to see if the player's position is touching lava if so set a new state, check to see if the player 
+
+method - overlap(actor1, actor2)
+Summery: checks to see if the given actors are touching each other
+
+Return type: returns a true or false 
+
+Tips: compare the x and y positions of both the objects, if one it greater than the other than they're overlapping
