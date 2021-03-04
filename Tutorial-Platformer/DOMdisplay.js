@@ -2,7 +2,7 @@
 
 class DOMdisplay{
     // it needs to be given a parent and level at start
-    // the parent element is going to be the tag that the display is going to be created into
+    // the parent parameter is going to be the tag that the display is going to be created into
     constructor(parent, level) {
         // using the helper method you can set this dom and give it the parameters "div", {class:"game"} and drawGrid method with the level passed into it 
         // div is the parent

@@ -1,0 +1,75 @@
+Overview 
+This class creates a whole bunch of stuff but has everything to do with getting the game to display on the browser. it handles actor movement, camera movement, actor creation and more
+
+method - constructor(parent, level)
+Summery: the parent parameter is used to hold the element the dom is going to be created into. the dom being the document Object model. The level parameter is used to help draw the grid and get actors from. 
+the constructor also sets a dom using the elementHelper. 
+
+Tips: "div" is a generic top layer element that the dom could be set to, it's essentially what the game is going to be so giving it the class name game would be beneficial abd since its the game it has children which is going to be a grid. it'll be helpful to have an actorLayer set for the is class instead of using the levels actors every time. also nothing gets put on to the screen until you used the appendChild method in this case appending the dome to the given parent 
+
+method - clear()
+Summery: clears the game grid and essentially resets it, mostly used for when the player loses 
+
+Tips: the remove method works exactly like the clear method in ruby and can be used directly on the dom
+
+method - elementHelper(name, attrs, ...children)
+Summery: javaScript doesn't let you create elements with multiple children and attributes so this method lets you do that
+
+Return type: returns a document with a created element, other attributes and children attached to it 
+
+Tips: use the createElement method to create an element, attrs stands for attributes, attrs is an hash so to get the you need to iterate through them and use the setAttribute method, object.keys gets the key values from a hash and be able to get the names, it's pretty much used to set class names ...children means that it can have any amount of children given to it including zero and will also come in as an array, use the appendChild method 
+
+method - drawGrid(level)
+Summery: it creates the table, rows, cells and sets the class names for the css to use 
+
+Return type: returns a elementHelper 
+
+Tips: multiple elementHelpers are going to be used in this, start with a "table" which is a element name to specify its a table is going to be used, its essentially the background which is a class name for the css to use, it needs a width that can be set with the style class name, width needs to multiplied by the scale of the level, also set a scale staring at 20, table's have rows so you have to map over the table rows and use another elementHelper so you can se the "tr" which is an element that specifies its a table row, it needs a set hight with the scale and each row has cells so another elementHelper is need to set "td" which stands for table row and its class is going to be whatever the iterator is on 
+
+method - drawActors(actors)
+Summery: it creates an actor div to be used later when doing frames also also actually creates the actors size
+
+Return type: returns a elementHelper div that's children is another elementHelper which is going to be used to set another div and the actor's class, the second helper is going to be set to a variable so use that to set the width, height, left and top using the actor's axises multiplied by the scale also do forget to return it 
+
+method - syncState(state)
+Summery: it redraws all the actors to make sure the current level is up to date 
+
+Return type: there is none just updating stuff 
+
+Tips: you have to remove the current actorLayer before starting another one, append it in order for it to show up, check the status of state and update the camera scrolling with new state
+
+method - scrollPlayerIntoView(state)
+Summery: the display follows the player so they're in the center of the screen at all times
+
+Return type: no return but a whole lot of is statements 
+
+Tips: get the width and hight of the screen by using clientHeight and width on the dom, clientHeight is just the display content and padding and nothing else, get the margin by dividing the width by 3, for going left use scrollLeft on the dom, right is left + the width, the same process from getting top and bottom, grab player from state since the camera follows them, center is going to be the players position, take in consideration the players size and multiply it by scale, gonna need a whole bunch of if for if the player goes one way than go that way, an example of that would be if center.x > right - margin than the dom should scrollLeft to center.x + margin - width 
+
+method - trackKeys(keys)
+Summery: does exactly what the name of it, tracks which keys are being pressed 
+
+Return type: it's going to return a object that was created empty but filled with what arrowKey was used 
+
+Tips:  Object.create(null) creates a completely clean object meaning there's no properties attached to it at creation, gonna need to add another function to help EventListener track what key was pressed, check if the keys include the keys the EventListener is looking for, set down to the event type, events by default move the page up and down when arrow up and down are pressed so preventDefault 
+, addEventListeners for key down and up, return down, create a const that has all the keys needed and pass it into the method 
+
+method - runAnimation(frameFunc)
+Summery: essentially tracks how much time is passed so it can refresh the display with new actors 
+
+Return type: is a true or false on whether the game is still running 
+
+Tips: going to need a method inside of this method to create frames with a given time, timeStep is the amount of time the player spent away from the display screen, calculate it by getting the min of time - the last time, last time is a null value, make sure thats divided 1000 to turn it into minutes 
+
+method - runLevel(level, Display)
+Summery: Starts the current level and checks to see if the player lost so it clears the screen and restart the level,
+
+Return type: returns a promise is essentially a method that within its creation that it would be given everything it needs to return true or else it returns false
+
+Tips: create a display with the document body and level, tell state to start the level, create a promise, run the animation, updated state, use syncState to make sure the display is updated, check to see if the game is playing, if not than the player either lost or won so clear the display resolve the promise by giving it the status of state and returning false 
+
+method - runGame(plans,Display)
+Summery: takes in created plans and queues them up
+
+Return type: returns the console saying you've won when there's no more levels 
+
+Tips: async functions are functions used with promises, you need to go through plans with a for loop, going to need to check whether the player won the level by awaiting for it, await is a call word for methods that use a promise so until the promise is fulfilled it waits, call the runLevel method with the given plan and display, if the player wins than go to the next level 
