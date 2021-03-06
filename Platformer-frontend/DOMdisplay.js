@@ -7,19 +7,19 @@ class DOMdisplay{
 }
 const scale = 20
 function drawGrid(level){
-    let drawnGrid = elementHelper("table", {class:"background", style:`width ${level.width * scale}px`}, level.rows.map(row => elementHelper("tr",{style:`height ${level.height * scale}px`}, row.map(type => elementHelper("td", {class: type})))))
-    return drawnGrid
+    return elementHelper("table", {class:"background", style:`width ${level.width * scale}px`}, level.rows.map(row => elementHelper("tr",{style:`height ${scale}px`}, row.map(type => elementHelper("td", {class: type})))))
+
     
 }
 
 function elementHelper(elementName, attributes, ...children){
     element = document.createElement(elementName)
 
-    for(attr in Object.keys(attributes)){
-        element.setAttributes(attr, attributes[attr])
+    for(attr of Object.keys(attributes)){
+        element.setAttribute(attr, attributes[attr])
     }
 
-    for(child in children){
+    for(child of children){
         element.appendChild(child)
     }
 

@@ -1,4 +1,4 @@
-<!-- <link rel="stylesheet" href="style.css"> -->
+<link rel="stylesheet" href="style.css">
 <!--set a script tag-->
 <!--script tags are allowing java code in html-->
 <body>
@@ -10,8 +10,8 @@
 <script src="player.js"></script>
 <script src="coin.js"></script> 
 <script src="level.js"></script>
-<!-- <script src="DOMdisplay.js"></script>
-<script src="game_levels.js"></script> -->
+<script src="DOMdisplay.js"></script>
+<!-- <script src="game_levels.js"></script> -->
 <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 
 
@@ -29,6 +29,7 @@
 ......................`;
 
  let plan = new Level(simpleLevelPlan)
+ let display = new DOMdisplay(document.body, plan)
 </script>
 
 </body>
