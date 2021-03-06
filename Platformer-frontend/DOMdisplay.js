@@ -7,8 +7,8 @@ class DOMdisplay{
 }
 const scale = 20
 function drawGrid(level){
-    let drawnGrid = elementHelper("table", {class:"background", style:`width ${level.width * scale}px`} ,level.rows.map(type => elementHelper("tr",{style:`height ${level.height * scale}px`}, elementHelper("td", {class: type}))))
-    return grid 
+    let drawnGrid = elementHelper("table", {class:"background", style:`width ${level.width * scale}px`}, level.rows.map(row => elementHelper("tr",{style:`height ${level.height * scale}px`}, row.map(type => elementHelper("td", {class: type})))))
+    return drawnGrid
     
 }
 
