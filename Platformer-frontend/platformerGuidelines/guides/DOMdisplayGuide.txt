@@ -2,10 +2,10 @@ Overview
 This class creates a whole bunch of stuff but has everything to do with getting the game to display on the browser. it handles actor movement, camera movement, actor creation and more
 
 method - constructor(parent, level)
-Summery: the parent parameter is used to hold the element the dom is going to be created into. the dom being the document Object model. The level parameter is used to help draw the grid and get actors from. 
+Summery: the parent parameter is used to hold the element the dom is going to be appended to. the dom being the document Object model. The level parameter is used to draw the grid and get actors from. 
 the constructor also sets a dom using the elementHelper. 
 
-Tips: "div" is a generic top layer element that the dom could be set to, it's essentially what the game is going to be so giving it the class name game would be beneficial abd since its the game it has children which is going to be a grid. it'll be helpful to have an actorLayer set for the is class instead of using the levels actors every time. also nothing gets put on to the screen until you used the appendChild method in this case appending the dome to the given parent 
+Tips: "div" is a generic top layer element that the dom could be set to, it's essentially what the game is going to be so giving it the class name game would be beneficial abd since its the game it has children which is going to be a grid. it'll be helpful to have an actorLayer set for the is class instead of using the levels actors every time. also nothing gets put on to the screen until you used the appendChild method in this case appending the dom to the given parent 
 
 method - clear()
 Summery: clears the game grid and essentially resets it, mostly used for when the player loses 
@@ -24,7 +24,7 @@ Summery: it creates the table, rows, cells and sets the class names for the css 
 
 Return type: returns a elementHelper 
 
-Tips: multiple elementHelpers are going to be used in this, start with a "table" which is a element name to specify its a table is going to be used, its essentially the background which is a class name for the css to use, it needs a width that can be set with the style class name, width needs to multiplied by the scale of the level, also set a scale staring at 20, table's have rows so you have to map over the table rows and use another elementHelper so you can se the "tr" which is an element that specifies its a table row, it needs a set hight with the scale and each row has cells so another elementHelper is need to set "td" which stands for table row and its class is going to be whatever the iterator is on 
+Tips: multiple elementHelpers are going to be used in this, start with a "table" which is a element name to specify its a table is going to be used, its essentially the background which is a class name for the css to use, it needs a width that can be set with the style class name, width needs to multiplied by the scale of the level, also set a scale staring at 20, table's have rows so you have to map over the table rows and use another elementHelper so you can use "tr" which is an element that specifies its a table row, it needs a set hight with the scale and each row has cells so another elementHelper is needed to set "td" which stands for table row and its class is going to be whatever the iterator is on 
 
 method - drawActors(actors)
 Summery: it creates an actor div to be used later when doing frames also also actually creates the actors size
