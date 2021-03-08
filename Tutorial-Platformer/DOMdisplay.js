@@ -33,7 +33,7 @@ function drawGrid(level) {
     // the last argument in the element helper is children which this is going to have so iterate through the level rows using map use element helper again because you're now trying to create table rows 
     // again the first argument is going to be the parent which in this case is "tr" or html for table row, second argument is setting the height using the html style attribute since you create the tables width by multiply it by the scale you can just give it the scale as its value
     // the third argument is going to create the cells so do the same process as before and create another element for as many rows there are "td" is html for table cells and class:type is going to be its attribute 
-    return elementHelper("table", {class: "background", style: `width: ${level.width * scale}px`}, ...level.rows.map(row => elementHelper("tr", {style: `height: ${scale}px`}, ...row.map(type =>elementHelper("td", {class: type})))
+    return elementHelper("table", {class: "background", style: `width: 1600px`}, ...level.rows.map(row => elementHelper("tr", {style: `height: ${scale}px`}, ...row.map(type =>elementHelper("td", {class: type})))
         ))
         
 }

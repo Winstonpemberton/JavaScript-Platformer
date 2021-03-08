@@ -1,15 +1,14 @@
 class DOMdisplay{
     constructor(parent, level){
         this.dom = elementHelper("div",{class:"game"}, drawGrid(level))
+        parent.appendChild(this.dom)
 
     }
 
 }
 const scale = 20
 function drawGrid(level){
-    return elementHelper("table", {class:"background", style:`width ${level.width * scale}px`}, level.rows.map(row => elementHelper("tr",{style:`height ${scale}px`}, row.map(type => elementHelper("td", {class: type})))))
-
-    
+    return elementHelper("table", {class:"background", style: `width: 1600px`}, ...level.rows.map(row => elementHelper("tr",{style:`height ${scale}px`}, ...row.map(type => elementHelper("td", {class: type})))))
 }
 
 function elementHelper(elementName, attributes, ...children){
