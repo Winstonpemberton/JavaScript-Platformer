@@ -1,6 +1,7 @@
-Every player needs a position and a speed 
-this is for placement when drawing 
-The player class needs four methods for it to work properly 
+
+
+Method - constructor(position, speed)
+Summery: this is for placement when drawing and updating
 
 Method - type()
 Summery: this method returns the type of the player so when other methods iterate through a list of actors it can call it and know what it is 

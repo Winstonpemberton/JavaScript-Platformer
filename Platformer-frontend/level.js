@@ -10,9 +10,9 @@ class Level {
             return row.map((char, x) => {
                  let character = levelSymbols[char]
 
-                // if(character instanceof Object){
-                //     this.actors.push(character.create(new VectorPosition(x,y)))
-                // }
+                if(character instanceof Object){
+                    this.actors.push(character.create(new VectorPosition(x,y)))
+                }
                 return character
 
             })

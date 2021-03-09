@@ -7,6 +7,13 @@ Summery: the constructor needs these things at creation to determine where lava 
 method - type()
 Summery: returns a string of the class for drawing 
 
+method - create(position, char)
+Summery: creates a lava object at a specified place,  depending on the character given it creates a different type of lava
+
+Return type: returns a new lava object with given coordinates 
+
+Tips: needs to be a static method aka a class method, also to determine which lava it is multiple if are needed or a switch 
+
 method - collide(state)
 Summery: checks to see if the player touches it, if so the game restarts 
 
