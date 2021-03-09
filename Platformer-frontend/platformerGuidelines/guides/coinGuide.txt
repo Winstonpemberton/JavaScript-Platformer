@@ -1,6 +1,8 @@
 Overview 
 creates a coin and holds all of its necessary class properties and methods. It has five methods and needs a position on creation 
 
+Method - constructor()
+
 Method - type()
 Summery: it returns the type of the object, mostly for iterating purposes when drawing
 
