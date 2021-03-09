@@ -8,8 +8,12 @@ class Level {
 
         this.rows = rows.map((row, y) =>{
             return row.map((char, x) => {
-                return levelSymbols[char]
-                
+                 let character = levelSymbols[char]
+
+                // if(character instanceof Object){
+                //     this.actors.push(character.create(new VectorPosition(x,y)))
+                // }
+                return character
 
             })
         })
@@ -18,7 +22,7 @@ class Level {
     }
 }
 
-const levelSymbols = {".": "empty", "#":"wall", "@":Player, 
-                        "o":Coin, "+":Lava, "v":Lava, "=":Lava}
+const levelSymbols = {".": "empty", "#":"wall", "@":Player,"+":"lava",
+                        "o":Coin, "|":Lava, "v":Lava, "=":Lava}
 
 const justWallsAndEmpty = {".": "empty", "#":"wall"}
