@@ -1,5 +1,13 @@
 .background{
-    background-color: antiquewhite;
+    background-color: rgb(45, 45, 141);
     table-layout: fixed;
     border-spacing: 0;
+}
+
+.background .td{
+    padding: 0;
+}
+
+.wall {
+    background-color: cornsilk;
 }
