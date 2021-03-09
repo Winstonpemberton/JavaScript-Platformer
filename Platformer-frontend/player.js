@@ -1,14 +1,14 @@
 class Player{
-    constructor(position,speed) {
+    constructor(position) {
         this.position = position
-        this.speed = speed
+        // this.speed = speed
     }
 
     get type(){
         return "player"
     }
     
-    static create(){
-        
+    static create(position){
+        return new Player(position)
     }
 }
