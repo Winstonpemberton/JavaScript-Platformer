@@ -11,6 +11,18 @@ function drawGrid(level){
     return elementHelper("table", {class:"background", style: `width: ${level.width * scale}px`}, ...level.rows.map(row => elementHelper("tr",{style:`height: ${scale}px`}, ...row.map(type => elementHelper("td", {class: type})))))
 }
 
+function drawActors(actors){
+    return elementHelper("div", {},...actors.map(actor =>{
+      let actorDrawSize = elementHelper("div", {class:`actor ${actor.type}`})
+
+      actorDrawSize.style.width = `${actor.size.x * scale}px`
+      actorDrawSize.style.height = `${actor.size.y * scale}px`
+    }))
+        
+
+
+}
+
 function elementHelper(elementName, attributes, ...children){
     element = document.createElement(elementName)
 

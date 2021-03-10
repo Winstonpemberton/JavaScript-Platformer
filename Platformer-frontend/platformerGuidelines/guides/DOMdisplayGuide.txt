@@ -29,7 +29,9 @@ Tips: multiple elementHelpers are going to be used in this, start with a "table"
 method - drawActors(actors)
 Summery: it creates an actor div to be used later when doing frames also also actually creates the actors size
 
-Return type: returns a elementHelper div that's children is another elementHelper which is going to be used to set another div and the actor's class, the second helper is going to be set to a variable so use that to set the width, height, left and top using the actor's axises multiplied by the scale also do forget to return it 
+Return type: returns a elementHelper div that's children is another elementHelper which is going to be used to set another div and the actor's class
+
+Tips: in the helper use another variable to create a new elementHelper that sets another div and sets a class with the actors type, use this variable to set the width, height, top and left, use the actor's x and y size for width and height and you the actors position for the top and left, 
 
 method - syncState(state)
 Summery: it redraws all the actors to make sure the current level is up to date 
