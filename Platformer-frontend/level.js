@@ -11,7 +11,7 @@ class Level {
                  let character = levelSymbols[char]
 
                 if(character instanceof Object){
-                    this.actors.push(character.create(new VectorPosition(x,y)))
+                    this.actors.push(character.create(new VectorPosition(x,y), char))
                 }
                 return character
 

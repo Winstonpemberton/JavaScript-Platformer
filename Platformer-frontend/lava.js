@@ -11,14 +11,14 @@ class Lava{
     
     static create(position, character){
         switch(character) {
-            case character === "=":
-              new Lava(position)
+            case "=":
+              return new Lava(position)
               break;
-            case character === "v":
-              new Lava(position)
+            case "v":
+              return new Lava(position)
               break;
-            case character === "v":
-              new Lava(position)
+            case "|":
+             return new Lava(position)
               break;
             default:
               console.log("well something went wrong ")

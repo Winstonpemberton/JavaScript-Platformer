@@ -8,7 +8,7 @@ class Coin{
     }
 
     static create(position){
-        new Coin(position)
+       return new Coin(position)
     }
     
 }
