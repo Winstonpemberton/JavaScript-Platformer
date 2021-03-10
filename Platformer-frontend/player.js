@@ -12,3 +12,7 @@ class Player{
         return new Player(position)
     }
 }
+
+function size(){
+    return new VectorPosition(1,2)
+}

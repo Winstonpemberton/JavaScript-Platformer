@@ -12,3 +12,7 @@ class Coin{
     }
     
 }
+
+function size(){
+    return new VectorPosition(.4,.6)
+}
