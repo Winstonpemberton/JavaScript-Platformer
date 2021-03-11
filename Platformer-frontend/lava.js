@@ -26,6 +26,4 @@ class Lava{
     }
 }
 
-function size(){
-    return new VectorPosition(1, 1)
-}
+Lava.prototype.size = new VectorPosition(1,1) 

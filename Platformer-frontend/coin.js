@@ -13,6 +13,4 @@ class Coin{
     
 }
 
-function size(){
-    return new VectorPosition(.4,.6)
-}
+Coin.prototype.size = new VectorPosition(.4,.6) 

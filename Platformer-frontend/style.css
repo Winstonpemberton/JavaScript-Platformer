@@ -15,3 +15,15 @@
 .lava {
     background-color: crimson;
 }
+
+.actor {
+    position: absolute;
+}
+
+.coin {
+    background-color: gold;
+}
+
+.player {
+    background-color: slategray;
+}

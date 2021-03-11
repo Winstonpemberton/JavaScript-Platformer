@@ -13,6 +13,4 @@ class Player{
     }
 }
 
-function size(){
-    return new VectorPosition(1,2)
-}
+Player.prototype.size = new VectorPosition(1,2) 
