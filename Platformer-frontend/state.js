@@ -8,5 +8,10 @@ class State{
     static Start(level) {
         return new State(level, level.actors, "playing")
     }
+
+    get player(){
+        return this.actors.find(actor => actor.type === "player")
+    }
+
 }
 

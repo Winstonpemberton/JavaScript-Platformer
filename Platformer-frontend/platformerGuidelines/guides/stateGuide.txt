@@ -4,12 +4,12 @@ this class is used to track the progress of the game by knowing where everything
 method - constructor(level, actor, status)
 Summery: the level is used to read what the current level looks like, actors are used for updating actor locations, getting the player and checking to see if different actors are overlapping, status just checks to see if the game is beaten or not so the next level is loaded or the game is reset because the player lost
 
-class method - start(level)
+static method - start(level)
 Summery: sets the state of the game to playing 
 
 Return type: returns a new state object that has its state set to "playing"
 
-method - player()
+getter method - player()
 Summery: it iterates through the current states actors to find the player 
 
 Return type: returns a player actor 
