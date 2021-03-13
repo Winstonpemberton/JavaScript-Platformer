@@ -1,7 +1,7 @@
 class DOMdisplay{
     constructor(parent, level){
         this.dom = elementHelper("div",{class:"game"}, drawGrid(level))
-
+        this.actorLayer = nil
         parent.appendChild(this.dom)
     }
 
@@ -31,6 +31,7 @@ function drawActors(actors){
 }
 
 function syncState(state){
+    if(this.actorLayer != nil) this.actorLayer.remove
     
 }
 

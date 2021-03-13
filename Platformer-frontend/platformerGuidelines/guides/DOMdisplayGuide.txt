@@ -3,7 +3,7 @@ This class creates a whole bunch of stuff but has everything to do with getting 
 
 method - constructor(parent, level)
 Summery: the parent parameter is used to hold the element the dom is going to be appended to. the dom being the document Object model. The level parameter is used to draw the grid and get actors from. 
-the constructor also sets a dom using the elementHelper. 
+the constructor also sets a dom using the elementHelper. the constructor also should have a actorLayer variable for drawing and deleting actors
 
 Tips: "div" is a generic top layer element that the dom could be set to, it's essentially what the game is going to be so giving it the class name game would be beneficial abd since its the game it has children which is going to be a grid. it'll be helpful to have an actorLayer set for the is class instead of using the levels actors every time. also nothing gets put on to the screen until you used the appendChild method in this case appending the dom to the given parent 
 
@@ -33,12 +33,12 @@ Return type: returns a elementHelper div that's children is another elementHelpe
 
 Tips: in the helper use another variable to create a new elementHelper that sets another div and sets a class with the actors type, use this variable to set the width, height, top and left, use the actor's x and y size for width and height and you the actors position for the top and left, 
 
-method - syncState(state)
+prototype method - syncState(state)
 Summery: it redraws all the actors to make sure the current level is up to date 
 
 Return type: there is none just updating stuff 
 
-Tips: you have to remove the current actorLayer before starting another one, append it in order for it to show up, check the status of state and update the camera scrolling with new state
+Tips: check to see if there's anything inside of the dom's actorLayer if so remove them, use the empty actor layer to draw the new actors, set the class name for the dom to the current status of the game, run the camera method
 
 method - scrollPlayerIntoView(state)
 Summery: the display follows the player so they're in the center of the screen at all times
