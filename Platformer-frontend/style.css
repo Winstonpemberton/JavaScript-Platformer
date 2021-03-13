@@ -27,3 +27,11 @@
 .player {
     background-color: slategray;
 }
+
+.lost .player{
+    background-color: firebrick;
+}
+
+.won .player{
+    background-color: gold;
+}

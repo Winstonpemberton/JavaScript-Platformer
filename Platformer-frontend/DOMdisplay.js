@@ -30,9 +30,10 @@ function drawActors(actors){
 
 }
 
-function syncState(state){
-    if(this.actorLayer != nil) this.actorLayer.remove
-    
+DOMdisplay.prototype.syncState = function(state){
+    if(this.actorLayer != nil) this.actorLayer.remove()
+    this.actorLayer = drawActors(state.actors)
+    this.dom.className = `Game: ${state.status}`
 }
 
 function elementHelper(elementName, attributes, ...children){
