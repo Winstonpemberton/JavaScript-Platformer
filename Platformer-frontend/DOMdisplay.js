@@ -1,7 +1,7 @@
 class DOMdisplay{
     constructor(parent, level){
         this.dom = elementHelper("div",{class:"game"}, drawGrid(level))
-        this.actorLayer = nil
+        this.actorLayer = null
         parent.appendChild(this.dom)
     }
 

@@ -35,3 +35,10 @@
 .won .player{
     background-color: gold;
 }
+
+.game {
+    max-height: 700px;
+    max-width: 500;
+    overflow: hidden;
+    position: relative;
+}
