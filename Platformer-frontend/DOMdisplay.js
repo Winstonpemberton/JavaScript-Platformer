@@ -36,6 +36,34 @@ DOMdisplay.prototype.syncState = function(state){
     this.dom.className = `Game: ${state.status}`
 }
 
+DOMdisplay.prototype.scrollWithPlayer = function(state){
+    let screenHeight = this.dom.clientHeight
+    let screenWidth = this.dom.clientWidth 
+    let thirdOfWidth = screenWidth/ 3 
+
+    let cameraLeft = this.dom.scrollLeft 
+    let cameraRight = cameraLeft + screenWidth
+     
+    let cameraTop = this.dom.scrollTop
+    let cameraBottom = cameraTop + screenWidth 
+
+    let player = state.player()
+    let cameraCenter = player.position.times(scale) // if camera doesn't work it's def because of this 
+
+    // center.x = player's x position aka where the player is on the x axis 
+    // camera right = camera left aka the scrollLeft of the dom which starts at 0 
+    // margin = 1/3 of the width of the screen 
+    // center.x > camera right - margin = if the x position of the player is greater than the left most of the screen plus a third of the width of the screen 
+    // this.dom.scrollLeft = center.x + third of width of screen - the screen width =
+    // set screen scroll to the player's x position + third of width of screen - the screen width
+    if(cameraCenter.x > cameraRight - thirdOfWidth){
+        this.dom.scrollLeft = cameraCenter.x + thirdOfWidth - screenWidth
+    }
+
+
+
+}
+
 function elementHelper(elementName, attributes, ...children){
     element = document.createElement(elementName)
 

@@ -40,12 +40,12 @@ Return type: there is none just updating stuff
 
 Tips: check to see if there's anything inside of the dom's actorLayer if so remove them, use the empty actor layer to draw the new actors, set the class name for the dom to the current status of the game, run the camera method
 
-method - scrollPlayerIntoView(state)
+prototype method - scrollPlayerIntoView(state)
 Summery: the display follows the player so they're in the center of the screen at all times
 
-Return type: no return but a whole lot of is statements 
+Return type: no return but a whole lot of if statements 
 
-Tips: get the width and hight of the screen by using clientHeight and width on the dom, clientHeight is just the display content and padding and nothing else, get the margin by dividing the width by 3, for going left use scrollLeft on the dom, right is left + the width, the same process from getting top and bottom, grab player from state since the camera follows them, center is going to be the players position, take in consideration the players size and multiply it by scale, gonna need a whole bunch of if for if the player goes one way than go that way, an example of that would be if center.x > right - margin than the dom should scrollLeft to center.x + margin - width 
+Tips: get the width and hight of the screen by using clientHeight and width on the dom, clientHeight is just the display content and padding and nothing else, get the margin by dividing the width by 3, for going left use scrollLeft on the dom, right is left + the width, the same process from getting top and bottom, grab player from state since the camera follows them, center is going to be the players position, take in consideration the players size and multiply it by scale, gonna need a whole bunch of ifs for if the player goes one way than go that way, an example of that would be if center.x > right - margin than the dom should scrollLeft to center.x + margin - width 
 
 method - trackKeys(keys)
 Summery: does exactly what the name of it, tracks which keys are being pressed 

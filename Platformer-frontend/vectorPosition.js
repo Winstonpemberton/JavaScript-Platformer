@@ -4,6 +4,8 @@ class VectorPosition{
         this.y = y
     }
 
-    
+    times(factor){
+       return new VectorPosition(this.x * factor, this.y * factor)
+    }
 
 }
