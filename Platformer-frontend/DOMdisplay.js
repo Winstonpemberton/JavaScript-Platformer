@@ -56,11 +56,16 @@ DOMdisplay.prototype.scrollWithPlayer = function(state){
     // center.x > camera right - margin = if the x position of the player is greater than the left most of the screen plus a third of the width of the screen 
     // this.dom.scrollLeft = center.x + third of width of screen - the screen width =
     // set screen scroll to the player's x position + third of width of screen - the screen width
-    if(cameraCenter.x > cameraRight - thirdOfWidth){
+    if(cameraCenter.x < cameraLeft + thirdOfWidth){
+        this.dom.scrollLeft = cameraCenter.x - thirdOfWidth
+    }else if (cameraCenter.x > cameraRight - thirdOfWidth){
         this.dom.scrollLeft = cameraCenter.x + thirdOfWidth - screenWidth
     }
-
-
+    if(cameraCenter.y < cameraTop + thirdOfWidth){
+        this.dom.scrollTop = cameraCenter.y - thirdOfWidth 
+    }else if (cameraCenter > cameraBottom.y - thirdOfWidth){
+        this.dom.scrollTop = cameraCenter.y + thirdOfWidth - screenHeight
+    }
 
 }
 
