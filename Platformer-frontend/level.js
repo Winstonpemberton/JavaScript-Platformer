@@ -22,7 +22,29 @@ class Level {
     }
 }
 
+Level.prototype.touches = function(position, size, type){
+    let actorWidth = position.x.times(.1)
+    let actorHeight = position.y.times(.1)
+    let actorSizeX = size.x.times(.1)
+    let actorSizeY = size.y.times(.1)
+
+    for(y = actorHeight; y < actorSizeY; y++){
+        for(x = actorWidth; x < actorSizeX; x++){
+            let isInside = x < 0 || x >= this.width || y > 0 || y < this.height
+
+            let nextTo = isInside? "wall" : this.rows[x][y]
+            if(nextTo === type){
+                return true 
+            }
+        }
+        return false 
+    }
+
+
+
+}
+
+
+
 const levelSymbols = {".": "empty", "#":"wall", "@":Player,"+":"lava",
                         "o":Coin, "|":Lava, "v":Lava, "=":Lava}
-
-const justWallsAndEmpty = {".": "empty", "#":"wall"}
