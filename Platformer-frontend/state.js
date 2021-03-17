@@ -14,6 +14,10 @@ class State{
     }
 }
 
+State.prototype.update = function(time, keys){
+    
+}
+
 
 
 function overlap(actor1, actor2 ){
