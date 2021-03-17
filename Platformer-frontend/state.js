@@ -12,6 +12,13 @@ class State{
     get player(){
         return this.actors.find(actor => actor.type === "player")
     }
-
 }
 
+
+
+function overlap(actor1, actor2 ){
+    return actor1.position.x + actor1.size.x > actor2.position.x && 
+        actor2.position.x + actor2.size.x > actor1.position.x && 
+        actor1.position.y + actor1.size.y > actor2.position.y && 
+        actor2.position.y + actor2.size.y > actor1.position.y
+}

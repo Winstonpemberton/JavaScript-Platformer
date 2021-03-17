@@ -39,9 +39,7 @@ Level.prototype.touches = function(position, size, type){
         }
         return false 
     }
-
-
-
+    
 }
 
 
