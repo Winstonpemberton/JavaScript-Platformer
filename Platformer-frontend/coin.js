@@ -15,6 +15,14 @@ class Coin{
     
 }
 
+Coin.prototype.collide = function(state){
+    let filterOutCurrentCoin = state.actors.map(actor => {
+        actor != this
+    })
+    if (filterOutCurrentCoin.length === 0) state.status = "won"
+    return new State(state.level, filterOutCurrentCoin, state.status)
+}
+
 Coin.prototype.update = function(time){
     const wobbleSpeed = 7, wobbleDist = .05 
     let wobble = this.wobble + time * wobbleSpeed
