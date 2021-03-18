@@ -1,8 +1,8 @@
 class Lava{
-    constructor(position){
+    constructor(position, speed, reset){
         this.position = position
-        // this.speed = speed 
-        // this.reset = reset 
+        this.speed = speed 
+        this.reset = reset 
     }
 
     get type(){
@@ -25,5 +25,22 @@ class Lava{
           }
     }
 }
+
+Lava.prototype.collide = function(state){
+  return new State(state.level, state.actors, "lost")
+}
+
+Lava.prototype.update(time,state){
+  new newLavaPosition = this.position.plus(this.speed.times(time))
+
+  if(!state.level.touches(newLavaPosition, this.size, "wall")){
+    return new Lava(newLavaPosition, this.speed, this.reset)
+  } else if (this.reset){
+    return new Lava(this.reset,this.speed, this.reset)
+  }else {
+    return new Lava(newLavaPosition, this.speed.times(-1))
+  }
+}
+
 
 Lava.prototype.size = new VectorPosition(1,1) 

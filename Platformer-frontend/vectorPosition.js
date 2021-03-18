@@ -8,4 +8,8 @@ class VectorPosition{
        return new VectorPosition(this.x * factor, this.y * factor)
     }
 
+    plus(factor){
+        return new VectorPosition(this.x + factor, this.y + factor)
+    }
+
 }
