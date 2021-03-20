@@ -30,13 +30,13 @@ Lava.prototype.collide = function(state){
   return new State(state.level, state.actors, "lost")
 }
 
-Lava.prototype.update(time,state){
+Lava.prototype.update = function(time,state){
   new newLavaPosition = this.position.plus(this.speed.times(time))
 
   if(!state.level.touches(newLavaPosition, this.size, "wall")){
     return new Lava(newLavaPosition, this.speed, this.reset)
   } else if (this.reset){
-    return new Lava(this.reset,this.speed, this.reset)
+    return new Lava(this.reset,this.speed, this.reset )
   }else {
     return new Lava(newLavaPosition, this.speed.times(-1))
   }
