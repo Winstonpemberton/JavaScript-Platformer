@@ -69,6 +69,47 @@ DOMdisplay.prototype.scrollWithPlayer = function(state){
 
 }
 
+DOMdisplay.prototype.trackKeys = function(keys){
+    let whichKeyArray = Object.create(null)
+    function track(event){
+        if (keys.includes(event.key)){
+            whichKeyArray[event.key] = event.type == "keydown"
+            event.preventDefault();
+        }
+    window.addEventListener("keydown", track)
+    window.addEventListener("keyup", track)
+
+    return whichKeyArray
+    }
+
+}
+
+const arrowKeys = trackKeys(["ArrowUp, ArrowLeft, ArrowRight"])
+
+function runAnimation(frameFunction){
+    let lastTime = null 
+    function frame(time){
+        if (lastTime != null){
+            timeStep = Math.min(time - lastTime, 100)/ 1000
+            if (frameFunction(timeStep) === false)return 
+        }
+        lastTime = time
+        requestAnimationFrame(frame)
+    }
+    requestAnimationFrame(frame)
+}
+
+function runLevel(level, Display){
+    let newDisplay = new Display(document.body, level)
+    let state = State.startLevel(level)
+    let ending = 1 
+    return new Promise(resolve => {
+        runAnimation(time => {
+            state = state.update(time, keys )
+        })
+    })
+}
+
 function elementHelper(elementName, attributes, ...children){
     element = document.createElement(elementName)
 
