@@ -84,7 +84,6 @@ DOMdisplay.prototype.trackKeys = function(keys){
 
 }
 
-const arrowKeys = trackKeys(["ArrowUp, ArrowLeft, ArrowRight"])
 
 function runAnimation(frameFunction){
     let lastTime = null 
@@ -98,6 +97,7 @@ function runAnimation(frameFunction){
     }
     requestAnimationFrame(frame)
 }
+const arrowKeys = trackKeys(["ArrowUp, ArrowLeft, ArrowRight"])
 
 function runLevel(level, Display){
     let newDisplay = new Display(document.body, level)
@@ -105,10 +105,23 @@ function runLevel(level, Display){
     let ending = 1 
     return new Promise(resolve => {
         runAnimation(time => {
-            state = state.update(time, keys )
+            state = state.update(time, arrowKeys )
+            newDisplay.syncState(state)
+            if(state.status === "playing"){
+                return true
+            } else if (ending > 0){
+                ending -= time
+                return true 
+            }else {
+                newDisplay.clear 
+                resolve(state.status)
+                return false
+            }
         })
     })
 }
+
+async function 
 
 function elementHelper(elementName, attributes, ...children){
     element = document.createElement(elementName)
