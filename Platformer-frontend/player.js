@@ -9,7 +9,7 @@ class Player{
     }
     
     static create(position){
-        return new Player(position)
+        return new Player(position.plus(new VectorPosition(0,-0.5)), new VectorPosition(0,0))
     }
 }
 
@@ -17,7 +17,7 @@ const gravity = 30
 const jumpSpeed = 20
 const playerStartSpeed = 8
 
-Player.prototype.update = function(time,state,key){
+Player.prototype.update = function(time,state,keys){
     let playerXSpeed = 0
     if(keys.ArrowLeft){
         playerXSpeed += playerStartSpeed

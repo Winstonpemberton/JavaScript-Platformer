@@ -5,7 +5,7 @@ class State{
         this.status = status 
     }
 
-    static Start(level) {
+    static startLevel(level) {
         return new State(level, level.actors, "playing")
     }
 

@@ -12,13 +12,13 @@ class Lava{
     static create(position, character){
         switch(character) {
             case "=":
-              return new Lava(position)
+              return new Lava(position, new VectorPosition(3,0))
               break;
             case "v":
-              return new Lava(position)
+              return new Lava(position, new VectorPosition(0,2))
               break;
             case "|":
-             return new Lava(position)
+             return new Lava(position, new VectorPosition(0,2), position)
               break;
             default:
               console.log("well something went wrong ")

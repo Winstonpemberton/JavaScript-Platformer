@@ -23,10 +23,10 @@ class Level {
 }
 
 Level.prototype.touches = function(position, size, type){
-    let actorWidth = position.x.times(.1)
-    let actorHeight = position.y.times(.1)
-    let actorSizeX = size.x.times(.1)
-    let actorSizeY = size.y.times(.1)
+    let actorWidth = position.x
+    let actorHeight = position.y
+    let actorSizeX = size.x
+    let actorSizeY = size.y
 
     for(y = actorHeight; y < actorSizeY; y++){
         for(x = actorWidth; x < actorSizeX; x++){
