@@ -31,7 +31,7 @@ Lava.prototype.collide = function(state){
 }
 
 Lava.prototype.update = function(time,state){
-  new newLavaPosition = this.position.plus(this.speed.times(time))
+  let newLavaPosition = this.position.plus(this.speed.times(time))
 
   if(!state.level.touches(newLavaPosition, this.size, "wall")){
     return new Lava(newLavaPosition, this.speed, this.reset)

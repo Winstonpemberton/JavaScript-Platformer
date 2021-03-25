@@ -75,12 +75,14 @@ DOMdisplay.prototype.trackKeys = function(keys){
         if (keys.includes(event.key)){
             whichKeyArray[event.key] = event.type == "keydown"
             event.preventDefault();
-        }
+        }   
+     }
+    
     window.addEventListener("keydown", track)
     window.addEventListener("keyup", track)
 
     return whichKeyArray
-    }
+
 
 }
 

@@ -12,26 +12,28 @@
 <script src="coin.js"></script> 
 <script src="level.js"></script>
 <script src="DOMdisplay.js"></script>
-<!-- <script src="game_levels.js"></script> -->
+<script src="gameLevels.js"></script>
 <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 
 
 
 <script>
-  let simpleLevelPlan = `
-......................
-..#................#..
-..#..............=.#..
-..#.........o.o....#..
-..#.@......#####...#..
-..#####............#..
-......#++++++++++++#..
-......##############..
-......................`;
+//   let simpleLevelPlan = `
+// ......................
+// ..#................#..
+// ..#..............=.#..
+// ..#.........o.o....#..
+// ..#.@......#####...#..
+// ..#####............#..
+// ......#++++++++++++#..
+// ......##############..
+// ......................`;
 
- let plan = new Level(simpleLevelPlan)
- let display = new DOMdisplay(document.body, plan)
- display.syncState(State.start(plan))
+//  let plan = new Level(simpleLevelPlan)
+//  let display = new DOMdisplay(document.body, plan)
+//  display.syncState(State.start(plan))
+
+ runGame(GAME_LEVELS, DOMDisplay);
 </script>
 
 </body>
