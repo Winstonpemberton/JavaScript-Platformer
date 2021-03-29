@@ -22,8 +22,8 @@ function drawActors(actors){
 
       actorDrawSize.style.width = `${actor.size.x * scale}px`
       actorDrawSize.style.height = `${actor.size.y * scale}px`
-      actorDrawSize.style.top = `${actor.position.x * scale}px`
-      actorDrawSize.style.left = `${actor.position.y * scale}px`
+      actorDrawSize.style.left = `${actor.position.x * scale}px`;
+      actorDrawSize.style.top = `${actor.position.y * scale}px`;
 
       return actorDrawSize
     }))
