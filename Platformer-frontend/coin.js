@@ -23,10 +23,10 @@ Coin.prototype.collide = function(state){
     if (filterOutCurrentCoin.length === 0) state.status = "won"
     return new State(state.level, filterOutCurrentCoin, state.status)
 }
-const wobbleSpeed = 7, wobbleDist = .05 
+const wobbleSpeed = 6, wobbleDist = .1
 Coin.prototype.update = function(time){
     let wobble = this.wobble + time * wobbleSpeed
-    let wobblePosition = Math.sin(wobble) + wobbleDist
+    let wobblePosition = Math.sin(wobble) * wobbleDist
     return new Coin(this.basePosition.plus(new VectorPosition(0, wobblePosition)), this.basePosition, wobble)
 }
 

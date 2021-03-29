@@ -38,7 +38,7 @@ Player.prototype.update = function(time, state, keys){
     // to get the arrow direction use ArrowLeft and ArrowRight on keys 
     if (keys.ArrowLeft) xSpeed -= playerXSpeed
     // if the player holds down the right arrow key set the players not moving speed equal to its self plus the const player x speed
-    if(keys.ArrowRight)xSpeed += playerXSpeed
+    if(keys.ArrowRight) xSpeed += playerXSpeed
     // set a variable to hold the current player object's position 
     let position = this.position
     // set a variable to hold the moved position by taking the old position plus(method) pass in a new vector position and pass in the X speed of the player * time, time being how long they held the key and vector takes in to arguments for x and y since this was for setting the new position of x not y so the y position would remain at zero 

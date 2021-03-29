@@ -9,7 +9,7 @@ class VectorPosition{
     }
 
     plus(factor){
-        return new VectorPosition(this.x + factor, this.y + factor)
+        return new VectorPosition(this.x + factor.x, this.y + factor.y)
     }
 
 }

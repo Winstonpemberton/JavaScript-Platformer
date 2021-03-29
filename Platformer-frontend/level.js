@@ -10,11 +10,9 @@ class Level {
             return row.map((char, x) => {
                  let character = levelSymbols[char]
 
-                 if (typeof character == "string") return character;
-                 // if its one of the actors push it into the actors array with its exact vector position 
-                 // need to create a vector position class  
-                 this.startActors.push(type.create(new VectorPosition(x,y), ch))
-
+                 if(character instanceof Object){
+                    this.actors.push(character.create(new VectorPosition(x,y), char))
+                }
                 return character
 
             })

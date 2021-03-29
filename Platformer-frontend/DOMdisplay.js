@@ -33,6 +33,7 @@ function drawActors(actors){
 DOMdisplay.prototype.syncState = function(state){
     if(this.actorLayer) this.actorLayer.remove()
     this.actorLayer = drawActors(state.actors)
+    this.dom.appendChild(this.actorLayer)
     this.dom.className = `Game: ${state.status}`
     this.scrollWithPlayer(state)
 }
