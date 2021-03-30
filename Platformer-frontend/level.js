@@ -23,13 +23,16 @@ class Level {
 }
 
 Level.prototype.touches = function(position, size, type){
-    let actorWidth = position.x
-    let actorHeight = position.y
-    let actorSizeX = size.x
-    let actorSizeY = size.y
+    let xStart = Math.floor(position.x)
+    let xEnd = Math.ceil(position.x + size.x)
+    let yStart = Math.floor(position.y)
+    let yEnd = Math.ceil(position.y + size.y)
 
-    for(y = actorHeight; y < actorSizeY; y++){
-        for(x = actorWidth; x < actorSizeX; x++){
+
+
+
+    for(y = yStart; y < yEnd; y++){
+        for(x = xStart; x < xEnd; x++){
             let isInside = x < 0 || x >= this.width || y > 0 || y < this.height
 
             let nextTo = isInside? "wall" : this.rows[x][y]

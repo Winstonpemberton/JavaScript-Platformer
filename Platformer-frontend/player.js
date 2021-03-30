@@ -36,7 +36,7 @@ Player.prototype.update = function(time,state,keys){
     let movedYPosition = currentPosition.plus(new VectorPosition(0, playerYSpeed * time))
     if(!state.level.touches(movedYPosition, this.size, "wall")){
         currentPosition = movedYPosition
-    }else if (key.ArrowUp && playerYSpeed > 0){
+    }else if (keys.ArrowUp && playerYSpeed > 0){
         playerYSpeed = -jumpSpeed
     }else {
         playerYSpeed = 0
