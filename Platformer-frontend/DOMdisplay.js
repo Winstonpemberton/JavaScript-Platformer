@@ -34,7 +34,7 @@ DOMdisplay.prototype.syncState = function(state){
     if(this.actorLayer) this.actorLayer.remove()
     this.actorLayer = drawActors(state.actors)
     this.dom.appendChild(this.actorLayer)
-    this.dom.className = `Game: ${state.status}`
+    this.dom.className = `game ${state.status}`
     this.scrollWithPlayer(state)
 }
 
@@ -50,7 +50,7 @@ DOMdisplay.prototype.scrollWithPlayer = function(state){
     let cameraBottom = cameraTop + screenWidth 
 
     let player = state.player
-    let cameraCenter = player.position.times(scale) // if camera doesn't work it's def because of this 
+    let cameraCenter = player.position.plus(player.size.times(0.5)).times(scale) // if camera doesn't work it's def because of this 
 
     // center.x = player's x position aka where the player is on the x axis 
     // camera right = camera left aka the scrollLeft of the dom which starts at 0 
@@ -72,7 +72,6 @@ DOMdisplay.prototype.scrollWithPlayer = function(state){
 }
 
 const arrowKeys = trackKeys(["ArrowUp", "ArrowLeft", "ArrowRight"])
-
 function trackKeys(keys){
     let whichKeyArray = Object.create(null)
     function track(event){
