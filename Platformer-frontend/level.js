@@ -23,9 +23,9 @@ class Level {
 }
 
 Level.prototype.touches = function(position, size, type){
-    let xStart = Math.floor(position.x)
-    let xEnd = Math.ceil(position.x + size.x)
-    let yStart = Math.floor(position.y)
+    let xStart = Math.floor(position.x -.3 )
+    let xEnd = Math.ceil(position.x + size.x )
+    let yStart = Math.floor(position.y + 1)
     let yEnd = Math.ceil(position.y + size.y)
 
     for(y = yStart; y < yEnd; y++){
