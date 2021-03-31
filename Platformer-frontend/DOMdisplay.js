@@ -72,11 +72,12 @@ DOMdisplay.prototype.scrollWithPlayer = function(state){
 }
 
 const arrowKeys = trackKeys(["ArrowUp", "ArrowLeft", "ArrowRight"])
+
 function trackKeys(keys){
     let whichKeyArray = Object.create(null)
     function track(event){
         if (keys.includes(event.key)){
-            whichKeyArray[event.key] = event.type == "keydown"
+            whichKeyArray[event.key] = event.type === "keydown"
             event.preventDefault();
         }   
      }

@@ -14,8 +14,8 @@ class Player{
 }
 
 const gravity = 30
-const jumpSpeed = 20
-const playerStartSpeed = 8
+const jumpSpeed = 17 
+const playerStartSpeed = 7
 
 Player.prototype.update = function(time,state,keys){
     let playerXSpeed = 0
@@ -45,4 +45,4 @@ Player.prototype.update = function(time,state,keys){
     return new Player(currentPosition, new VectorPosition(playerXSpeed, playerYSpeed))
 }
 
-Player.prototype.size = new VectorPosition(1,2) 
+Player.prototype.size = new VectorPosition(0.8, 1.5)
