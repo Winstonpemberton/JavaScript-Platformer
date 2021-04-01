@@ -6,7 +6,7 @@ class DOMdisplay{
     }
 
     clear(){
-        this.dom.remove
+        this.dom.remove()
     }
 
 }
@@ -117,7 +117,7 @@ function runLevel(level, Display){
                 ending -= time
                 return true 
             }else {
-                newDisplay.clear 
+                newDisplay.clear()
                 resolve(state.status)
                 return false
             }
@@ -128,11 +128,11 @@ function runLevel(level, Display){
 async function runGame(plans, Display){
     for(let level = 0; level < plans.length;){
         let status = await runLevel(new Level(plans[level]), Display)
-    if (status === "won"){
-        level++ 
+        if (status === "won"){
+            level++ 
+        }
     }
     console.log("You've Won")
-    }
 }
 
 function elementHelper(elementName, attributes, ...children){

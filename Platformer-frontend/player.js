@@ -20,10 +20,10 @@ const playerStartSpeed = 7
 Player.prototype.update = function(time,state,keys){
     let playerXSpeed = 0
     if(keys.ArrowLeft){
-        playerXSpeed += playerStartSpeed
+        playerXSpeed -= playerStartSpeed
     }
     if (keys.ArrowRight){
-        playerXSpeed -= playerStartSpeed
+        playerXSpeed += playerStartSpeed
     }
     let currentPosition = this.position 
     let movedXPosition = currentPosition.plus(new VectorPosition
