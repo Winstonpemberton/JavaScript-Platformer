@@ -10,6 +10,20 @@ class DOMdisplay{
     }
 
 }
+
+function loginPage(){
+    this.dom.remove()
+    return elementHelper("title",{class: "title"}, )
+}
+
+// const BACKEND_URL = 'localhost:3000';
+
+// document.addEventListener('DOMContentLoaded', () => (console.log("loaded")))
+// fetch(`${BACKEND_URL}/`)
+//   .then(response => response.json())
+//   .then(parsedResponse => console.log(parsedResponse)); 
+
+
 const scale = 20
 function drawGrid(level){
 
